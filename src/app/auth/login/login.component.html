@@ -1,0 +1,80 @@
+<section id="breadcrumbs" class="breadcrumbs">
+  <div class="container">
+    <ol>
+      <li><a routerLink="/home">Home</a></li>
+      <li>Login</li>
+    </ol>
+    <h2>Login</h2>
+  </div>
+</section>
+
+<div class="container login-page">
+  <div class="row text-center justify-content-center">
+    <div class="col-md-12">
+      <form class="example-form">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input
+            type="email"
+            matInput
+            [formControl]="emailFormControl"
+            [errorStateMatcher]="matcher"
+            placeholder="Ex. pat@example.com"
+          />
+          <mat-hint>Errors appear instantly!</mat-hint>
+          <mat-error
+            *ngIf="
+              emailFormControl.hasError('email') &&
+              !emailFormControl.hasError('required')
+            "
+          >
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Password</mat-label>
+          <input
+            type="password"
+            matInput
+            [formControl]="passwordFormControl"
+            [errorStateMatcher]="matcher"
+          />
+          <mat-hint>Errors appear instantly!</mat-hint>
+          <mat-error
+            *ngIf="
+              passwordFormControl.hasError('minlength') &&
+              !passwordFormControl.hasError('required')
+            "
+          >
+            Please enter a valid Password(minlength 6)
+          </mat-error>
+          <mat-error *ngIf="passwordFormControl.hasError('required')">
+            Password is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <div class="">
+          <mat-checkbox
+            class=""
+            matInput
+            [formControl]="rememmberMeFormControl"
+            [disabled]="!emailFormControl.valid || !passwordFormControl.valid"
+            >Rememmber Me</mat-checkbox
+          >
+        </div>
+
+        <button
+          class="btn btn-primary mt-4"
+          (click)="Login($event)"
+          [disabled]="!emailFormControl.valid || !passwordFormControl.valid"
+        >
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

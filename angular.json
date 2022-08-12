@@ -23,6 +23,8 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "./node_modules/ngx-spinner/animations/ball-scale-multiple.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -90,6 +92,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -97,5 +100,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "d89fd90b-3cde-4d8d-a237-b9ace8accedd"
   }
 }
